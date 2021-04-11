@@ -1,0 +1,49 @@
+<!doctype html>
+<script>
+    function* genFibo(){
+        let current = a = 0;
+        let b = 1;
+        yield a;
+
+        while (true) {
+            current = b;
+
+            yield current;
+
+            b = a + b;
+            a = current;
+        }
+
+        /* if (n){
+            yield a;
+            [a, b] = [b, a + b]
+        }else{
+            yield b;git init
+            [a, b] = [b, a + b]
+        } */
+
+
+
+/*         while(true){
+            yield a;
+            [a, b] = [b, a + b]
+        } */
+        
+/*         while (yield "prev"){
+            yield b;
+            [a, b] = [b, a - b]
+        } */
+    }
+   let gen = genFibo();
+
+    function next(){
+        console.log(gen.next().value);
+    }
+    function prev(){
+        console.log(genFibo(false).next().value);
+
+    }
+
+</script>
+</html>
+
